@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:avaloniaCalculator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="250"
+        Width="300" Height="350"
+        CanResize="False"
+        x:Class="avaloniaCalculator.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="avaloniaCalculator">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*,*,*" Margin="1" ShowGridLines="False">
+        <Label Content="{Binding DisplayValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="30" />
+        <Button Content="1" Command="{Binding NumberSelected}" CommandParameter="1" Grid.Row="1" Grid.Column="0" />
+        <Button Content="2" Command="{Binding NumberSelected}" CommandParameter="2" Grid.Row="1" Grid.Column="1" />
+        <Button Content="3" Command="{Binding NumberSelected}" CommandParameter="3" Grid.Row="1" Grid.Column="2" />
+        <Button Content="/" Command="{Binding NumberSelected}" CommandParameter="/" Grid.Row="1" Grid.Column="3" />
+        <Button Content="4" Command="{Binding NumberSelected}" CommandParameter="4" Grid.Row="2" Grid.Column="0" />
+        <Button Content="5" Command="{Binding NumberSelected}" CommandParameter="5" Grid.Row="2" Grid.Column="1" />
+        <Button Content="6" Command="{Binding NumberSelected}" CommandParameter="6" Grid.Row="2" Grid.Column="2" />
+        <Button Content="*" Command="{Binding NumberSelected}" CommandParameter="*" Grid.Row="2" Grid.Column="3" />
+        <Button Content="7" Command="{Binding NumberSelected}" CommandParameter="7" Grid.Row="3" Grid.Column="0" />
+        <Button Content="8" Command="{Binding NumberSelected}" CommandParameter="8" Grid.Row="3" Grid.Column="1" />
+        <Button Content="9" Command="{Binding NumberSelected}" CommandParameter="9" Grid.Row="3" Grid.Column="2" />
+        <Button Content="-" Command="{Binding ButtonClicked}" CommandParameter="-" Grid.Row="3" Grid.Column="3" />
+        <Button Content="C" Command="{Binding ResetAll}" Grid.Row="4" Grid.Column="0" Background="Red" />
+        <Button Content="0" Command="{Binding NumberSelected}" CommandParameter="0" Grid.Row="4" Grid.Column="1" />
+        <Button Content="=" Command="{Binding ButtonClicked}" CommandParameter="=" Grid.Row="4" Grid.Column="2" />
+        <Button Content="+" Command="{Binding ButtonClicked}" CommandParameter="+" Grid.Row="4" Grid.Column="3" />
+    </Grid>
+</Window>
