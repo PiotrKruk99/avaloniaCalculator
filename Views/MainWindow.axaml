@@ -40,7 +40,7 @@
         <Button Content="-" Command="{Binding SetOperation}" CommandParameter="-" Grid.Row="3" Grid.Column="3" />
         <Button Content="C" Command="{Binding ResetAll}" Grid.Row="4" Grid.Column="0" Background="Red" />
         <Button Content="0" Command="{Binding NumberSelected}" CommandParameter="0" Grid.Row="4" Grid.Column="1" />
-        <Button Content="=" Command="{Binding ButtonClicked}" CommandParameter="=" Grid.Row="4" Grid.Column="2" />
+        <Button Content="=" Command="{Binding SetOperation}" CommandParameter="=" Grid.Row="4" Grid.Column="2" />
         <Button Content="+" Command="{Binding SetOperation}" CommandParameter="+" Grid.Row="4" Grid.Column="3" />
     </Grid>
 </Window>

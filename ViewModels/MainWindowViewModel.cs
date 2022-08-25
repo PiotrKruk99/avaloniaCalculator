@@ -7,18 +7,11 @@ namespace avaloniaCalculator.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        //private int displayValue = 0;
         private double displayValue = 0;
+        private bool shouldResetDisplay = false;
         private double value1 = 0;
-        private double value2 = 0;
-        private enum OperationType {sum, difference, product, quotient, none};
+        private enum OperationType { sum, difference, product, quotient, result, none };
         private OperationType operationType = OperationType.none;
-
-        // public string DisplayValue
-        // {
-        //     get => displayValue.ToString();
-        //     private set => this.RaiseAndSetIfChanged(ref displayValue, Convert.ToInt32(value));
-        // }
 
         public double DisplayValue
         {
@@ -29,26 +22,38 @@ namespace avaloniaCalculator.ViewModels
         public void NumberSelected(string numberText)
         {
             double number = Convert.ToDouble(numberText);
-            //DisplayValue = (displayValue * 10 + number).ToString();
-            DisplayValue = displayValue * 10 + number;
+
+            if (shouldResetDisplay)
+            {
+                value1 = displayValue;
+                DisplayValue = number;
+                shouldResetDisplay = false;
+            }
+            else
+            {
+                DisplayValue = displayValue * 10 + number;
+            }
         }
 
         public void SetOperation(string operT)
         {
-            switch (operationType)
+            if (!shouldResetDisplay)
             {
-                case OperationType.sum:
-                    DisplayValue = value1 + displayValue;
-                    break;
-                case OperationType.difference:
-                    DisplayValue = value1 - displayValue;
-                    break;
-                case OperationType.product:
-                    DisplayValue = value1 * displayValue;
-                    break;
-                case OperationType.quotient:
-                    DisplayValue = displayValue == 0 ? 0 : value1 / displayValue;
-                    break;
+                switch (operationType)
+                {
+                    case OperationType.sum:
+                        DisplayValue = value1 + displayValue;
+                        break;
+                    case OperationType.difference:
+                        DisplayValue = value1 - displayValue;
+                        break;
+                    case OperationType.product:
+                        DisplayValue = value1 * displayValue;
+                        break;
+                    case OperationType.quotient:
+                        DisplayValue = displayValue == 0 ? 0 : value1 / displayValue;
+                        break;
+                }
             }
 
             switch (operT)
@@ -66,16 +71,22 @@ namespace avaloniaCalculator.ViewModels
                 case "/":
                     operationType = OperationType.quotient;
                     break;
+                case "=":
+                    operationType = OperationType.result;
+                    break;
                 default:
                     operationType = OperationType.none;
                     break;
             }
+
+            shouldResetDisplay = true;
         }
 
         public void ResetAll()
         {
-            //DisplayValue = "0";
             DisplayValue = 0;
+            value1 = 0;
+            shouldResetDisplay = false;
         }
 
         public void ButtonClicked(string text)
