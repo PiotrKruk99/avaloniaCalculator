@@ -29,18 +29,18 @@
         <Button Content="1" Command="{Binding NumberSelected}" CommandParameter="1" Grid.Row="1" Grid.Column="0" />
         <Button Content="2" Command="{Binding NumberSelected}" CommandParameter="2" Grid.Row="1" Grid.Column="1" />
         <Button Content="3" Command="{Binding NumberSelected}" CommandParameter="3" Grid.Row="1" Grid.Column="2" />
-        <Button Content="/" Command="{Binding NumberSelected}" CommandParameter="/" Grid.Row="1" Grid.Column="3" />
+        <Button Content="/" Command="{Binding SetOperation}" CommandParameter="/" Grid.Row="1" Grid.Column="3" />
         <Button Content="4" Command="{Binding NumberSelected}" CommandParameter="4" Grid.Row="2" Grid.Column="0" />
         <Button Content="5" Command="{Binding NumberSelected}" CommandParameter="5" Grid.Row="2" Grid.Column="1" />
         <Button Content="6" Command="{Binding NumberSelected}" CommandParameter="6" Grid.Row="2" Grid.Column="2" />
-        <Button Content="*" Command="{Binding NumberSelected}" CommandParameter="*" Grid.Row="2" Grid.Column="3" />
+        <Button Content="*" Command="{Binding SetOperation}" CommandParameter="*" Grid.Row="2" Grid.Column="3" />
         <Button Content="7" Command="{Binding NumberSelected}" CommandParameter="7" Grid.Row="3" Grid.Column="0" />
         <Button Content="8" Command="{Binding NumberSelected}" CommandParameter="8" Grid.Row="3" Grid.Column="1" />
         <Button Content="9" Command="{Binding NumberSelected}" CommandParameter="9" Grid.Row="3" Grid.Column="2" />
-        <Button Content="-" Command="{Binding ButtonClicked}" CommandParameter="-" Grid.Row="3" Grid.Column="3" />
+        <Button Content="-" Command="{Binding SetOperation}" CommandParameter="-" Grid.Row="3" Grid.Column="3" />
         <Button Content="C" Command="{Binding ResetAll}" Grid.Row="4" Grid.Column="0" Background="Red" />
         <Button Content="0" Command="{Binding NumberSelected}" CommandParameter="0" Grid.Row="4" Grid.Column="1" />
         <Button Content="=" Command="{Binding ButtonClicked}" CommandParameter="=" Grid.Row="4" Grid.Column="2" />
-        <Button Content="+" Command="{Binding ButtonClicked}" CommandParameter="+" Grid.Row="4" Grid.Column="3" />
+        <Button Content="+" Command="{Binding SetOperation}" CommandParameter="+" Grid.Row="4" Grid.Column="3" />
     </Grid>
 </Window>
