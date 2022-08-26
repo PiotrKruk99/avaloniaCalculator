@@ -7,13 +7,13 @@ namespace avaloniaCalculator.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private double displayValue = 0;
+        private decimal displayValue = 0;
         private bool shouldResetDisplay = false;
-        private double value1 = 0;
+        private decimal value1 = 0;
         private enum OperationType { sum, difference, product, quotient, result, none };
         private OperationType operationType = OperationType.none;
 
-        public double DisplayValue
+        public decimal DisplayValue
         {
             get => displayValue;
             private set => this.RaiseAndSetIfChanged(ref displayValue, value);
@@ -21,7 +21,7 @@ namespace avaloniaCalculator.ViewModels
 
         public void NumberSelected(string numberText)
         {
-            double number = Convert.ToDouble(numberText);
+            decimal number = Convert.ToDecimal(numberText);
 
             if (shouldResetDisplay)
             {
@@ -87,11 +87,6 @@ namespace avaloniaCalculator.ViewModels
             DisplayValue = 0;
             value1 = 0;
             shouldResetDisplay = false;
-        }
-
-        public void ButtonClicked(string text)
-        {
-
         }
     }
 }
